@@ -10,6 +10,7 @@ typedef struct {
   uint8_t count;
 } CircularBuffer;
 
+// create circular buffer
 CircularBuffer create_circular_buffer(void) {
   CircularBuffer circular_buffer;
   circular_buffer.head = 0;
@@ -55,6 +56,7 @@ bool pop(CircularBuffer *cb, uint8_t *data) {
   return true;
 }
 
+// read operation (without removing)
 bool peek(CircularBuffer *cb, uint8_t *data) {
   if (cb->count == 0) {
     return false;
