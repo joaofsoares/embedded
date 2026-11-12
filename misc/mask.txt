@@ -1,0 +1,6 @@
+Hexadecimal	Binary	Meaning
+0x01	0000 0001	1 bit set
+0x03	0000 0011	2 bits set
+0x07	0000 0111	3 bits set
+0x0F	0000 1111	4 bits set
+0xFF	1111 1111	8 bits set
