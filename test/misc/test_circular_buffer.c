@@ -1,6 +1,6 @@
-#include "../../../src/misc/circular_buffer.c"
+#include "../../src/misc/circular_buffer.c"
 
-#include "../../../Unity-2.7.0/src/unity.c"
+#include "../../Unity-2.7.0/src/unity.c"
 
 #include <stdint.h>
 

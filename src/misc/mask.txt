@@ -1,3 +1,8 @@
+reg |= (1 << n);     // Set bit n
+reg &= ~(1 << n);    // Clear bit n
+reg ^= (1 << n);     // Toggle bit n
+if (reg & (1 << n))  // Check if bit n is set
+
 Hexadecimal	Binary	Meaning
 0x01	0000 0001	1 bit set
 0x03	0000 0011	2 bits set
