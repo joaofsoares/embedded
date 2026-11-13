@@ -1,3 +1,4 @@
+Common bit-masking patterns
 reg |= (1 << n);     // Set bit n
 reg &= ~(1 << n);    // Clear bit n
 reg ^= (1 << n);     // Toggle bit n
