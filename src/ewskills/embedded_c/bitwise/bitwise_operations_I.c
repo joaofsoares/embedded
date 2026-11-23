@@ -14,11 +14,12 @@ int main(void) {
   // Correct Answer:  0x10
   // The assignment ctrl_reg = (1 << 4) replaces the entire register with 0x10
   // (00010000). All previously configured bits in 0xCB are lost. The correct
-  // approach is bitwise OR with assignment: ctrl_reg |= (1 << 4);  // Sets only
-  // bit 4, others untouched With |=, the result would be 0xCB | 0x10 = 0xDB.
-  // Learning: In register programming, = overwrites everything. |= is the safe
-  // way to set bits. A single wrong operator can misconfigure an entire
-  // peripheral.
+  // approach is bitwise OR with assignment: ctrl_reg |= (1 << 4);
+  // Sets only bit 4, others untouched With |=, the result would be 0xCB | 0x10
+  // = 0xDB.
+  // Learning: In register programming, = overwrites everything. |= is
+  // the safe way to set bits. A single wrong operator can misconfigure an
+  // entire peripheral.
 
   // question 2
   uint8_t reg;
@@ -28,7 +29,8 @@ int main(void) {
   // Correct Answer: Clears the MODE field to 00
   // 0x03 << 5 produces 0x60 (01100000), which covers bits 5 and 6 — exactly the
   // MODE field. The ~ inverts it to 10011111, and &= clears only those two bits
-  // to 00, leaving all other fields untouched. Learning: Reading register
+  // to 00, leaving all other fields untouched.
+  // Learning: Reading register
   // operations against a datasheet bit layout is a daily firmware skill. The
   // pattern reg &= ~(mask << offset) is the standard way to clear a multi-bit
   // field before writing a new value.
@@ -57,7 +59,8 @@ int main(void) {
   // to or greater than the width of the type is undefined behavior. Even though
   // val is uint32_t, shifting by 32 exceeds the valid range of 0 to 31. Some
   // CPUs may produce 0, others may leave the value unchanged — the result is
-  // unpredictable and non-portable Learning: Always ensure the shift count is
+  // unpredictable and non-portable
+  // Learning: Always ensure the shift count is
   // strictly less than the bit width of the type. For uint32_t, valid shifts
   // are 0 to 31. This matters in firmware when shift amounts come from
   // variables or macros whose values may not be obvious at a glance.
