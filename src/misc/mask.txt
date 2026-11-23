@@ -1,0 +1,21 @@
+In C, bitwise operations allow direct manipulation of individual bits within a byte, word, or register. These operations are performed using the following operators:
+
+    | → Bitwise OR — typically used to set a bit
+    & → Bitwise AND — used to clear or check a bit
+    ^ → Bitwise XOR — used to toggle (invert) a bit
+    ~ → Bitwise NOT — used to flip all bits (1 to 0, 0 to 1)
+    <<,  >> → Bit shift left/right — used to move bit positions
+
+Common bit-masking patterns:
+reg |= (1 << n);      // Set bit n
+reg &= ~(1 << n);     // Clear bit n
+reg ^= (1 << n);      // Toggle bit n
+if (reg & (1 << n))   // Check if bit n is set
+bit = (reg >> i) & 1; // Get bit
+
+Hexadecimal	Binary	Meaning
+0x01	0000 0001	1 bit set
+0x03	0000 0011	2 bits set
+0x07	0000 0111	3 bits set
+0x0F	0000 1111	4 bits set
+0xFF	1111 1111	8 bits set

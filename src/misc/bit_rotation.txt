@@ -1,0 +1,44 @@
+Rotation Example (8-bit)
+
+Start with this value: 0b11010100 (212 in decimal)
+
+Example 1: Rotate Left by 3
+
+Original   : 11010100
+Step 1     : Shift Left by 3    → 10100000
+Step 2     : Wrap Right 3 bits  →      110
+Result     : 10100000 | 00000110 = 10100110 (0xA6)
+
+C code:
+uint8_t val = 0b11010100;
+uint8_t result = (val << 3) | (val >> (8 - 3));
+result &= 0xFF;  // Ensure 8-bit result
+
+Copy
+
+Example 2: Rotate Right by 2
+
+Original   : 11010100
+Step 1     : Shift Right by 2   → 00110101
+Step 2     : Wrap Left 2 bits   →       00
+Result     : 00110101 | 00000000 = 00110101 (0x35)
+
+C code:
+uint8_t val = 0b11010100;
+uint8_t result = (val >> 2) | (val << (8 - 2));
+result &= 0xFF;  // Ensure 8-bit result
+
+Copy
+
+
+Pattern Detection Use Case
+
+If you’re scanning a byte to detect a recurring bit sequence (like 0b0101), you can rotate the byte and check each rotated value:
+
+for (int i = 0; i < 8; i++) {
+    if ((byte & 0x0F) == 0x05) {
+        // Match found
+    }
+    byte = (byte << 1) | (byte >> 7);
+    byte &= 0xFF;
+}
