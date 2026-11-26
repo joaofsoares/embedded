@@ -1,0 +1,11 @@
+Extract a bit field
+
+value = (reg >> position) & mask;
+
+Replace a bit field
+
+/* Where mask is a binary mask for the number of bits in the field.
+E.g., For 3-bit field → mask = 0x07 */
+
+reg &= ~(mask << position);            // Clear the bits (mask= high bits)
+reg |= ((new_value & mask) << position); // Set the new bits
